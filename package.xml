@@ -4,7 +4,7 @@
   <name>ros2_course</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="buffalo@todo.todo">buffalo</maintainer>
+  <maintainer email="korbzs@git">buffalo</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
