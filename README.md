@@ -37,5 +37,11 @@ The program leverages ROS 2 and turtlesim to simulate fractal tree generation th
 1. Ensure you have a working ROS 2 setup.
 2. Launch the turtlesim node:
    ```bash
-   ros2 run turtlesim turtlesim_node
+   ros2 run turtlesim turtlesim_node!
+Examples:
+
+![Képernyőkép 2025-05-13 004803](https://github.com/user-attachments/assets/49c24127-d70c-4f38-8a05-06786210e400)
+![Képernyőkép 2025-05-15 072857](https://github.com/user-attachments/assets/f398f20d-6c1b-4a23-8c99-a40a4ae459ee)
+![Képernyőkép 2025-05-15 074314](https://github.com/user-attachments/assets/8378a326-3ec4-4fdf-ac7d-b9f9e237db0a)
+
 
