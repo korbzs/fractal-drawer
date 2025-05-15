@@ -10,7 +10,6 @@ class FractalDrawer(Node):
     def __init__(self, args):
         super().__init__('fractal_drawer')
         
-        # Parse command line arguments
         self.depth = args.depth
         self.trunk_length = args.length
         self.angle = args.angle * (math.pi/180)
@@ -22,7 +21,7 @@ class FractalDrawer(Node):
         self.pose_received = False
         self.timer_called = False
         
-        # Create clients and subscriber
+        # publishers and subscriber
         self.teleport = self.create_client(TeleportAbsolute, 'turtle1/teleport_absolute')
         self.set_pen = self.create_client(SetPen, 'turtle1/set_pen')
         self.pose_sub = self.create_subscription(Pose, 'turtle1/pose', self.pose_callback, 10)
@@ -114,8 +113,8 @@ class FractalDrawer(Node):
         self.draw_branch(x2, y2, new_length, angle + self.angle, depth - 1, max_depth)  # Right
         self.draw_branch(x2, y2, new_length, angle - self.angle, depth - 1, max_depth)  # Left
         
-        # Middle branch with variation - controlled by middle_branch parameter
-        middle_threshold = 1.0 if not self.middle_branch else 0.0
+        # Middle branch
+        middle_threshold = 1.0 if not self.middle_branch else 0.0 # Possibilities. if 0 -> middle branch is added
         if depth > 2 and random.random() > middle_threshold:
             middle_angle = angle + (random.random() - 0.5) * self.angle * 0.5
             self.draw_branch(x2, y2, new_length * 0.8, middle_angle, depth - 1, max_depth)
@@ -139,7 +138,7 @@ class FractalDrawer(Node):
         # Draw branches
         self.draw_branch(start_x, end_y, self.trunk_length * 0.7, math.pi/2, self.depth, self.depth)
         
-        # Add decorative dots
+        # Decorative dots
         if self.depth >= 5 and self.rainbow:
             for _ in range(20):
                 x = random.uniform(3.0, 8.0)
